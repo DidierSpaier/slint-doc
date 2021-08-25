@@ -5,7 +5,6 @@
 :toc-title: Contents
 :pdf-themesdir: themes
 :pdf-theme: default
-:sectnums:
 
 == Presentation
 
