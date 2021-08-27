@@ -79,7 +79,7 @@ To find out more, see the links under Information in the Slint Dasboard, visit o
 
 === Translation and other contributions to the Slint project
 
-Slint need translators! If you want to participate to the translation effort, read the instructions in https://slint.fr/doc/Translators.html[Translators]. Everybody is free to contribute, but please first make sure you meet the requirements listed in this document
+Slint need translators! If you want to participate to the translation effort, read the instructions in https://slint.fr/doc/translate_slint.html[Translate Slint].
 
 The translation files are hosted on https://crowdin.com/project/slint[Crowdin].
 
@@ -102,7 +102,7 @@ https://salixos.org/donations.html[Donations to Salix]
 
 ==  Install Slint
 
-This document walks through the process of downloading Slint, verifying the ISO image with a check-sum, writing the ISO to an installation medium, partitioning your hard disk, and briefly describes the installation process.
+This part of the HandBook walks through the process of downloading Slint, verifying the ISO image with a check-sum, writing the ISO to an installation medium, partitioning your hard disk, and briefly describes the installation process.
 
 === Requirements
 
