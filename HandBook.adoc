@@ -27,7 +27,7 @@ The language chosen will be used for internationalized applications.
 
 The Slint Dashboard centralizes access to hardware and system settings, packages, system tools, documentation and utilities.
 
-Slint ships with many applications out of the box to write and read and convert documents in various formats, communicate by email, text and audio chat, play audio and video, send and receive documents peer to peer, edit audio, video and graphical documents, develop applications. It is fully usable as a server on a console and using one of the several included desktops.
+Slint ships with many applications out of the box to create, edit, view and convert documents in various formats, communicate by email, text and audio chat, play audio and video, send and receive documents peer to peer, edit audio, video and graphical documents, develop applications. It is fully usable as a server on a console and using one of the several included desktops.
 
 Many applications are accessible to visually impaired users, a wide choice of TTS and associated voices is included, if you still need others they are easily installable, usable both in a textual environment (console) as well as on the desktop.
 
@@ -47,7 +47,7 @@ Slint being based on Slackware, we tend to provide a new Slint version shortly a
 
 However Slint follows a "semi-rolling" release models, meaning that during the life cycle of a given version, in addition to updates as security fixes and major bug fixes, some software are selectively updated to bring enhancements, and added to bring new features. This is the case for software contributing to make Slint accessible to the blind, like screen readers.
 
-We recommend that users switch to a new version as soon as possible after its release. So far we have been able to provide instructions and helper scripts allowing to upgrade instead of from scratch a new release. We will do our best for that to stay possible with future versions, even though a full backup of users' files, followed by a an installation a new and a restoration of users' files can be easier, especially for a desktop or laptop usage.
+We recommend that users switch to a new version as soon as possible after its release. So far we have been able to provide instructions and helper scripts allowing to upgrade instead of installing from scratch a new release. We will do our best for that to stay possible with future versions, even though a full backup of users' files, followed by a an installation a new and a restoration of users' files can be easier, especially for a desktop or laptop usage.
 
 === About this book, other sources of information
 
@@ -75,7 +75,7 @@ You can get help through these channels:
 * The https://forum.salixos.org/viewforum.php?f=44[Slint forum] kindly hosted by our friends at Salix (another Slackware derivative). Registration needed.
 
 
-To find out more, see the links under Information in the Slint Dasboard, visit our https://slint.fr/wiki/doku.php?id=en/start[wiki] or just type: slint-doc in a terminal after installation.
+To find out more, see the links under Information in the Slint Dashboard, visit our https://slint.fr/wiki/doku.php?id=en/start[wiki] or just type: slint-doc in a terminal after installation.
 
 === Translation and other contributions to the Slint project
 
@@ -93,7 +93,7 @@ Thanks to George Vlahavas for his advice and tools, to the contributors to the S
 
 Slint is based on Slackware, brought by Patrick J. Volkerding and contributors. Thanks! I encourage all Slint users to contribute to Slackware funding, and also to donate to the Salix project.
 
-The Slint repositories are kindly hosted for free by Darren 'Tadgy' Austin. I encourage  all Slint users to contribute to funding the host https://slackware.uk/
+The Slint repositories are kindly hosted for free by Darren 'Tadgy' Austin. I encourage all Slint users to contribute to funding the host https://slackware.uk/
 
 Links for financial contributions: +
 https://www.patreon.com/slackwarelinux[Become a Slackware patron] or https://paypal.me/volkerdi[Support Slackware] +
@@ -118,7 +118,7 @@ NOTE: Secure boot should be disabled to install Slint.
 === Features of the installer
 
 * The installer is a "live system", running in memory: it will not modify an installed system, unless and until you tell it to.
-* For blind users the installer is fully usable with Braille, and speech using the speakup screen reader.
+* For blind users the installer is fully usable with Braille, and speech using the Speakup screen reader.
 * For expert users it includes all needed utilities to prepare the <<drive,drive>> on which Slint will be installed.
 * The Auto mode of installation instead just needs user to answering questions and provide a contextual help about them.
 * The installer can free some space for Slint on a drive where you want to install it alongside another Linux under some conditions.
@@ -142,12 +142,12 @@ The latest installation ISO image is always available in https://slackware.uk/sl
 
 [TIP]
 ====
-As long as you are running Slint version 14.2.1 there is no need to re-install when a new ISO is provided, as it only brings new features of the installer and new or and upgraded package's that you can also get keeping your system up to date.
+As long as you are running Slint version 14.2.1 there is no need to re-install when a new ISO is provided, as it only brings new features of the installer and new or and upgraded packages that you can also get keeping your system up to date.
 ====
 
 The file name of the ISO indicated below is just an example, that you will adapt to the current name when downloading.
 
-If you are running Windows, an Internet with as argument "check sha256sum windows" will tell you ways to proceed.
+If you are running Windows, an Internet search with as argument "check sha256sum windows" will tell you how to proceed.
 
 If you are running Linux you can download the ISO image and its sha256 checksum typing:
 ----
@@ -200,11 +200,11 @@ On ++Windows++ use an application like http://rufus.akeo.ie/[Rufus].  It is free
 
 1. Open the Rufus program from where you downloaded it to run it.
 2. Select Create a bootable disk using and choose ISO Image from the drop-down menu.
-   Click the disc icon and browse to your Slint .iso file and select it.
+   Click the disk icon and browse to your Slint .iso file and select it.
 3. To insure the flash drive is compatible with UEFI, select FAT32 for <<file_system,file system>>.
 4. To create the flash drive with the "Press any key to boot from USB" prompt, select the Create extended label and icon files option.
 5. When you are done selecting options, click Start When prompted, confirm that you want to erase the flash disk.
-6. The .iso files will start copying to the flash drive (the process can take several minutes). When Rufus is done, close the program, eject and remove the flash drive.
+6. The .iso file will start copying to the flash drive (the process can take several minutes). When Rufus is done, close the program, eject and remove the flash drive.
 
 [[make_a_bootable_DVD_disc]]
 =====  Make a Bootable DVD Disc
@@ -224,11 +224,11 @@ On ++Microsoft Windows 7/8/10++ you can use the http://windows.microsoft.com/en-
 [[make_room_for_Slint]]
 ====  Make Room for Slint
 
-Dedicate a computer or at least a drive to Slint, makes installation easier and is thus recommended. Then, skip this step and proceed directly to run the installer.
+Dedicate a computer or at least a drive to Slint makes installation easier and is thus recommended. Then, skip this step and proceed directly to run the installer.
 
-But you can also share a drive with an already installed operating system like Windows, Mac OS, *BSD, or another Linux distribution,
+But you can also share a drive with an already installed operating system like Windows, Mac OS, *BSD, or another Linux distribution.
 
-Then you will need a free space for Slint at the end of the partition table of this drive (after the last partition). At least 20G is needed for the system itself, but you will need also some space for user files and install other software. Shrinking the last partition of the drive can be done after having started the installer typing linux commands if you are Linux power user. This can also be done by the installer in Auto mode if following conditions are satisfied:
+Then you will need a free space for Slint at the end of the partition table of this drive (after the last partition). At least 20G is needed for the system itself, but you will need also some space for user files and install other software. Shrinking the last partition of the drive can be done after having started the installer typing Linux commands if you are a Linux power user. This can also be done by the installer in Auto mode if following conditions are fulfilled:
 
 * The drive is equipped with a GUID Partition Table (GPT)
 * Its last partition has an ext <<file_system,file system>>.
@@ -277,7 +277,7 @@ Keep enough unused space on the System volume to allow installing a Windows upda
 Alternatively you can use the Disk Manager: select the volume you want to shrink, right click on it, select "shrink the volume", wait until the maximum space of which the volume can be shrunk be displayed, adapt the value to leave
 some space to allow storing more data there as you see fit, then click the shrink button.
 
-===== How-to free space on Linux.
+===== How-to free space on Linux
 
 You can use http://gparted.org/index.php[gparted], or a graphical tool for partitions management provided by your distribution.
 
@@ -286,25 +286,25 @@ TIP: If 28G can be freed in the last partition of a drive with a GPT equipped wi
 [[create_partitions_for_Slint]]
 ====  Create Partitions for Slint
 
-If you choose the Auto installation mode and dedicate a device for Slint, the installer will partition it for you. When done you can still tune the partitions' layout using one of the aforementioned commands mosted below if yiu whish.
+If you choose the Auto installation mode and dedicate a device for Slint, the installer will partition it for you. When done you can still tune the partitions' layout using one of the aforementioned commands listed below if you wish.
 
 If you intend to use the Manual installation mode you can create partitions for Slint either before or during installation.
 
 If you are not accustomed to Linux you will probably find easier to do it before installation. We suggest to use http://gparted.org/index.php[gparted] to do that. Gparted can shrink existing partitions to make room, as well as create new partitions in the freed space.  If you do not have a system that supports Gparted (Microsoft Windows) you can use http://gparted.org/livecd.php[Gparted Live].
-The commands cfdisk, fdisk, gdisk, cgfdisk and parted are available from the installer. You can use theme to partition the whole device or make the partitions for Slint in its freed space.
+The commands cfdisk, fdisk, gdisk, cgfdisk and parted are available in the installer. You can use them to partition the whole device or make the partitions for Slint in its freed space.
 
 Installing Slint needs:
 
 * A partition of type Linux, size at least 20G, more is better (at least 30 G recommended).
-* If you will boot in EFI mode, of type "EFI System" (code ef00) size at least 100M. Even if you will boot in Legacy mode it won't hurt to have one.
-*  In case of a GPT (GUID Partition Table), a partition of type BIOS Boot (ef02), size 4M, to boot in Legacy mode. Even if you boot in EFI mode, it won't hurt to have one.
-*  Optionally a partition of type "swap". This is recommended especially if you want to hibernate your machine and if you have less than 8G of RAM. However, you can instead set up a swap file after installation.
+* If you will boot in EFI mode, a partition of type "EFI System" (code ef00), size at least 100M. Even if you will boot in Legacy mode it won't hurt to have one.
+* In case of a GPT (GUID Partition Table), a partition of type BIOS Boot (ef02), size 4M, to boot in Legacy mode. Even if you boot in EFI mode, it won't hurt to have one.
+* Optionally a partition of type "swap". This is recommended especially if you want to hibernate your machine and if you have less than 8G of RAM. However, you can instead set up a swap file after installation.
 
 You can also dedicate a partition for /home (but this is not mandatory, I don't) and other partitions for specific use cases.
 
 [NOTE]
 ====
-Slint itself needs around 20 Gigabytes of space, but a root partition of 50 Gigabytes is recommended. You might want to install additional software or need more space to store your files.  The more space the better if you plan to store pictures, videos, music, etc.
+Slint itself needs around 20 gigabytes of space, but a root partition of 50 gigabytes is recommended. You might want to install additional software or need more space to store your files.  The more space the better if you plan to store pictures, videos, music, etc.
 ====
 
 === Slint Installation
@@ -366,7 +366,7 @@ For instance to install with a Papenmeier device connected through USB with a Fr
 -----
 brltty=pm,usb:,fr_FR
 -----
-NOTE: a braille device is connected through USB it should always be recognized, maybe just the text table won't be the good one if you didn't enter the settings at first.
+NOTE: a braille device connected through USB should always be recognized, maybe just the text table won't be the good one if you didn't enter the settings at first.
 
 In any case, as there is no timeout, booting will only begin when you press [Enter].
 
@@ -1485,7 +1485,7 @@ The keyboard shortcuts for graphical environments are listed in <<key_bindings,K
 Two graphical login managers are accessible with speech using Orca: lightdm or gdm, the latter being recommended as fully accessible.
 
 In gdm, the focus is initially in the User field. Type your user. or
-login name then type Enter and type your password.
+login name then press Enter and type your password.
 
 You can access other features of gdm through keyboard shortcuts. In
 English: +
@@ -2283,7 +2283,7 @@ If no wireless connection has been set yet choose `Activate a connection`.
 Starting from top to bottom, first the wired connections (if any) will
 be proposed, after that all accessible wireless networks will be listed.
 Navigate with the down and up arrow keys to select the network you want,
-then just type Enter: you will probably be asked for the password or encryption
+then just press Enter: you will probably be asked for the password or encryption
 key. Type it, use the Tab key to confirm, then exit and you are done.
 
 In graphical mode only, instead of `nmcli` or `nmtui` you can use the application
@@ -2468,7 +2468,7 @@ as a whole drive can be encrypted, which make it accessible only after having
 typed a small text called a passphrase, kept secret.
 
 [[file]]File::
-A computer file is a set of digital data gathered under the same name, recorded on a permanent storage medium, called mass storage, such as a hard disk, a SSD, a DVD, a SD card or an USN stick and handled as a unit.
+A computer file is a set of digital data gathered under the same name, recorded on a permanent storage medium, called mass storage, such as a hard disk, a SSD, a DVD, a SD card or an USB stick and handled as a unit.
 +
 Files can contain data like texts, images, sounds, videos or computers programs.
 
