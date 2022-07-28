@@ -17,11 +17,11 @@ A Slint system is functional out of the box and can be tailored to fit most comp
 
 ==== Features
 
-Two installation modes are proposed: Auto (no Linux command to type) and Manual for who wants more customization. The installer includes a documentation.
+Two installation modes are proposed: Automatic (the installer prepare the drive chosen by the user and install Slint on it) and Manual (The installer format the Linux partition chosen by the, fomrat it and install Slint on it). The installer includes a documentation.
 
 Slint is accessible to visually impaired users, with speech and braille, from installation to usage in a console as in graphical environments.
 
-A wide assortment of software for servers, desktops, and laptops is installed in all Slint systems, which include several graphical desktop environments: KDE (optional), LXDE, MATE, XFCE and lightweight window managers. All graphical environments provide easy access to all applications and system operations, with auto-mounting of removable devices, plus notifications of available updates of installed software, immediate Internet access, stopping, rebooting, and hibernating the system. Each desktop environment provides similar layout of the panels and the application menu to provide a consistent environment.
+A wide assortment of software for servers, desktops, and laptops is installed in all Slint systems, which include two graphical desktop environments: MATE and LXQt  XFCE and lightweight window managers. MATE and KXQt provide easy access to all applications and system operations, with auto-mounting of removable devices, plus notifications of available updates of installed software, immediate Internet access, stopping, rebooting, and hibernating the system.
 
 The language chosen will be used for internationalized applications.
 
@@ -41,13 +41,11 @@ Default preferred applications settings are provided and can be easily customize
 
 ==== Content, versions and release model.
 
-The Slint installer provides only a complete installation. Only the KDE desktop is optional.
+The Slint installer provides only a complete installation.
 
-Slint being based on Slackware, we tend to provide a new Slint version shortly after the release of a Slackware version.
+Slint follows a "semi-rolling" release model, meaning that during the life cycle of a given version, in addition to updates as security fixes and major bug fixes, some software are selectively updated to bring enhancements, and added to bring new features. This is the case for software contributing to make Slint accessible to the blind, like screen readers.
 
-However Slint follows a "semi-rolling" release models, meaning that during the life cycle of a given version, in addition to updates as security fixes and major bug fixes, some software are selectively updated to bring enhancements, and added to bring new features. This is the case for software contributing to make Slint accessible to the blind, like screen readers.
-
-We recommend that users switch to a new version as soon as possible after its release. So far we have been able to provide instructions and helper scripts allowing to upgrade instead of installing from scratch a new release. We will do our best for that to stay possible with future versions, even though a full backup of users' files, followed by a an installation a new and a restoration of users' files can be easier, especially for a desktop or laptop usage.
+We recommend that users switch to a new version as soon as possible after its release. We recommend that they do a full backup of all data they want to keep followed by a an installation a new and a restoration of the backup.
 
 === About this book, other sources of information
 
@@ -109,9 +107,9 @@ This part of the HandBook walks through the process of downloading Slint, verify
 The current Slint version can be installed on computers meeting these requirements:
 
 * Architecture: x86_64 (64-bit CPU), also known as AMD64
-* Free or free-able space on disk (hard drives, SSD, NVME, eMMC): at least 28G in Auto mode. A full Slint installation needs around 20G, without user files or add-ons.
+* A disk drive of size at least 50G for installation in Auto mode or a partition of type Linux of size at least 50G on a disk drive. All kinds of drives can be used: : hard drives, SSD, NVME, eMMC, USB sticks, SD preferably cards in USB enclosures.
 * RAM: at least 2G
-* a DVD drive or an USB slot available, with ability of the firmware to boot a DVD or USB stick. A blank DVD or a 4G or more USB stick can be used as installation media
+* a DVD drive or an USB slot available, with ability of the firmware to boot a DVD or USB stick. A blank DVD or a 5G or more USB stick can be used as installation media
 
 NOTE: Secure boot should be disabled to install Slint.
 
@@ -119,10 +117,9 @@ NOTE: Secure boot should be disabled to install Slint.
 
 * The installer is a "live system", running in memory: it will not modify an installed system, unless and until you tell it to.
 * For blind users the installer is fully usable with Braille, and speech using the Speakup screen reader.
-* For expert users it includes all needed utilities to prepare the <<drive,drive>> on which Slint will be installed.
+* It includes all needed utilities to prepare an the needed partitions prior to an installation in Manual partitining mpde.
 * The Auto mode of installation instead just needs user to answering questions and provide a contextual help about them.
-* The installer can free some space for Slint on a drive where you want to install it alongside another Linux under some conditions.
-* If installed alone on a removable device connected through USB, Slint can be made portable, i.e. usable on any computer able to boot off an USB drive.
+* If installed alone on a removable device connected through USB, Slint is portable, i.e. usable on any computer able to boot off an USB drive beyond the computer used to install it. For instance if installing on an USB stick you can just plug te stick on a compiter to run it.
 * The installer can encrypt the drive  where Slint is installed alone. This prevents the steal of data it contains in case of loss or theft of the machine, or of a removable drive.
 * Slint can be installed in its own drive, or alongside another system.
 
@@ -142,7 +139,7 @@ The latest installation ISO image is always available in https://slackware.uk/sl
 
 [TIP]
 ====
-As long as you are running Slint version 14.2.1 there is no need to re-install when a new ISO is provided, as it only brings new features of the installer and new or and upgraded packages that you can also get keeping your system up to date.
+As long as you are running Slint version 15 there is no need to re-install when a new ISO is provided, as it only brings new features of the installer and new or and upgraded packages that you can also get keeping your system up to date.
 ====
 
 The file name of the ISO indicated below is just an example, that you will adapt to the current name when downloading.
@@ -151,8 +148,8 @@ If you are running Windows, an Internet search with as argument "check sha256sum
 
 If you are running Linux you can download the ISO image and its sha256 checksum typing:
 ----
-wget https://slackware.uk/slint/x86_64/slint-14.2.1/iso/slint64-14.2.1.4.iso
-wget https://slackware.uk/slint/x86_64/slint-14.2.1/iso/slint64-14.2.1.4.iso.sha256
+wget https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.iso
+wget https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.iso.sha256
 ----
 
 To check the integrity of the downloaded files type this command:
@@ -210,100 +207,113 @@ On ++Microsoft Windows 2000/XP/Vista/7++ you can write to a DVD using the applic
 
 On ++Microsoft Windows 7/8/10++ you can use the http://windows.microsoft.com/en-US/windows7/Burn-a-CD-or-DVD-from-an-ISO-file[Windows Disk Image Burner] utility that is shipped with Microsoft Windows.
 
-[[make_room_for_Slint]]
-====  Make Room for Slint
+[[prepare_partitions_for_Slint]]
+==== Prepare partitions for Slint
 
-Dedicate a computer or at least a drive to Slint makes installation easier and is thus recommended. Then, skip this step and proceed directly to run the installer.
+In the Auto installation mode you dedicate a device for Slint, that the installer will partition for you. 
 
-But you can also share a drive with an already installed operating system like Windows, Mac OS, *BSD, or another Linux distribution.
+If you intend to use the Manual installation mode you can create partitions for Slint, either before or during installation, or just reuse existing partitions.
 
-Then you will need a free space for Slint at the end of the partition table of this drive (after the last partition). At least 20G is needed for the system itself, but you will need also some space for user files and install other software. Shrinking the last partition of the drive can be done after having started the installer typing Linux commands if you are a Linux power user. This can also be done by the installer in Auto mode if following conditions are fulfilled:
-
-* The drive is equipped with a GUID Partition Table (GPT)
-* Its last partition has an ext <<file_system,file system>>.
-* At least 28G can be freed in it.
-* The machine has booted in EFI mode (not Legacy)
-
-Else, you will need to make room for Slint before installation  using `gparted` or from Windows (recommended if Windows if installed). However, under some conditions Slint can do it for you as indicated in
-<<Automatic_installation, Automatic installation>>
-
-===== How-to free space in a Windows volume
-
-The steps indicated in
-https://docs.microsoft.com/en-us/windows-server/storage/disk-management/shrink-a-basic-volume[this document]
-are summarized below.
-
-1. From Windows, open a command prompt and type:
-+
-`diskpart`
-
-2. At the diskpart prompt, type:
-+
-`list volume`
-+
-Note the number of the simple volume you want to shrink.
-
-3. Select the volume you want to shrink, which should have a ntfs file system, by typing
-+
-`select volume <number>`
-
-4. to know the maximum size of which the volume can be shrunk type:
-+
-`shrink querymax`
-
-5. Define the <size> in megabytes of the free space you want to create. It should not be greater than the maximum size found with the previous command. You may want to leave some space available on the Windows volume to be able to store more data in it.
-
-6. Type this command:
-+
-`shrink desired=<size>`
-+
-size is a number in MB, for instance for 30 GB, knowing that G=1024M type:
-+
-`shrink desired=30720`
-+
-Keep enough unused space on the System volume to allow installing a Windows update.
-
-Alternatively you can use the Disk Manager: select the volume you want to shrink, right click on it, select "shrink the volume", wait until the maximum space of which the volume can be shrunk be displayed, adapt the value to leave
-some space to allow storing more data there as you see fit, then click the shrink button.
-
-===== How-to free space on Linux
-
-You can use http://gparted.org/index.php[gparted], or a graphical tool for partitions management provided by your distribution.
-
-TIP: If 28G can be freed in the last partition of a drive with a GPT equipped with an ext4 file system the installer can shrink it for you.
-
-[[create_partitions_for_Slint]]
-====  Create Partitions for Slint
-
-If you choose the Auto installation mode and dedicate a device for Slint, the installer will partition it for you. When done you can still tune the layout of the partitions using one of the aforementioned utilities listed below if you wish.
-
-If you intend to use the Manual installation mode you can create partitions for Slint either before or during installation.
-
-If you are not accustomed to Linux you will probably find easier to do it before installation. We suggest to use http://gparted.org/index.php[gparted] to do that. Gparted can shrink existing partitions to make room, as well as create new partitions in the freed space.  If you do not have a system that supports Gparted (Microsoft Windows) you can use http://gparted.org/livecd.php[Gparted Live].
+If you need to create partitions and are not accustomed to Linux you will probably find easier to do it before installation. We suggest to use http://gparted.org/index.php[gparted] to do that. Gparted can shrink existing partitions to make room, as well as create new partitions in the freed space.  If you do not have a system that supports Gparted (Microsoft Windows) you can use http://gparted.org/livecd.php[Gparted Live].
 The utilities cfdisk, fdisk, gdisk, cgfdisk and parted are available in the installer. You can use them to partition the whole device or make the partitions for Slint in its freed space.
 
-Installing Slint needs:
+Installation in Manual partitioning mode needs to have on the same drive:
 
-* A partition of type Linux, size at least 20G, more is better (at least 30 G recommended).
-* If you will boot in EFI mode, a partition of type "EFI System" (code ef00), size at least 100M. Even if you will boot in Legacy mode it won't hurt to have one.
-* In case of a GPT (GUID Partition Table), a partition of type BIOS Boot (ef02), size 4M, to boot in Legacy mode. Even if you boot in EFI mode, it won't hurt to have one.
-* Optionally a partition of type "swap". This is recommended especially if you want to hibernate your machine and if you have less than 8G of RAM. However, you can instead set up a swap file after installation.
+* A partition of type Linux, size at least 50G.
+* A partition of type "EFI System", size at least 32M.
+* A partition of type BIOS Boot, size 3M, not formatted.
 
-You can also dedicate a partition for /home (but this is not mandatory, I don't) and other partitions for specific use cases.
-
-[NOTE]
-====
-Slint itself needs around 20 gigabytes of space, but a root partition of 50 gigabytes is recommended. You might want to install additional software or need more space to store your files.  The more space the better if you plan to store pictures, videos, music, etc.
-====
+Rationale: This layout allows to boot Slint in Legacy as in EFI modes and also to make Slint portable
 
 === Slint Installation
 
-<<Start_of_the_installation,Start of the installation>> +
+<<Overview_of_Slint_Installation,Overview of Slint installation>> +
 <<Usage_of_the_installer,Usage of the installer>> +
-<<Automatic_installation,Automatic installation>> +
-<<Manual_installation,Manual installation>> +
-<<Slint_in_an_encrypted_drive,Slint in an encrypted drive>> +
+<<Manual_preparation,Manual preparation of the partitions used to install Slint>> +
+<<Encryption,Slint with an encrypted root partition>> +
+<<Speakup,Key bindings for the speakup screen reader>> +
+<<Glossary,Glossary of technical terms used in the documentation>> +
 <<first_steps_after_installation,First steps after installation>>
+
+[[Overview_of_Slint_Installation]]
+==== Overview of Slint installation
+
+Slint can be installed on 64bit computer only
+
+The installer first probes the existing drives and partitions to assess the
+possibilities and options of installation and let you choose between an
+automatic or manual creation of the partitions used by Slint.
+
+You are proposed to choose between manual or automatic preparation
+of the drive Slint will be installed.
+
+If you choose 'manual' you are presented the Linux partitions where Slint
+could be installed (size at least 50G), select one of them and choose the
+type of the file system that the installer will create in it: btrfs, ext4
+or xfs. Read 'Manual' to know more. 
+
+If you choose 'auto' you are presented the drives where Slint could be
+installed (size at least 50G), and the file system will be of type btrfs.
+
+In case of btrfs sub-volumes will created for home and / and with files
+compressed. 'Copy on write' will ease making snapshots and possibly revert a
+faulty system update. Tools to manage the snapshots are included in Slint.
+
+In both modes the user chooses which existing Linux and Windows partitions
+will be automatically mounted after booting Slint, and their mount points
+names, easing access to exiting systems and data from Slint.
+
+Then the user is proposed to encrypt the root system partition, to prevent data
+steal in case of loss or theft of the machine or the drive where Slint is
+installed. If accepted the installer records the passphrase allowing to
+unlock this partition. The user will when typing it at boot time when requested
+by GRUB to display the boot menu.
+
+After all that the installer summarizes your choices and let you confirm
+them or not. Up to this point no modification will have been done to the
+installed systems and data so you can safely deny, then type start again
+or just reboot without any harm.
+
+Then auto partitioning is done case occurring, the Slint root partition is
+encrypted if requested, the root partition is formatted and the first software
+packages are installed.
+
+[[Usage_of_the_installer]]
+==== Usage of the installer
+
+The installer first lets you choose the language to use during installation and
+select your keyboard layout, then allows you to type commands.
+
+You read the screen and type commands in a "virtual terminal". The installer
+includes several virtual terminals sharing the same physical keyboard and
+screen, that can be used in parallel.
+
+The installer starts in the virtual terminal 1 named tty1 but you can switch
+to another one. For instance you can switch to tty2 by pressing
+Alt-F2 then Enter to activate it and later go back to tty2 by pressing
+Alt-F1, without erasing information displayed in both terminals.
+Alt-F1 means: press and hold the Alt key then press the F1 key.
+
+This can be useful to continue reading the documentation during installation:
+for instance you can switch to tty2 to begin installation, switch to tty1 to
+continue reading the documentation, then switch to tty1 again to proceed to
+the next installation step.
+
+This can also be used to consult the glossary while reading other documents.
+
+The fourth virtual terminal or tty4 displays messages that can provide
+information for debugging, otherwise it is not used.
+
+The installer has several modes of interaction with you, the user:
+1) You type commands at the prompt and read their output.
+2) The installer asks a question, you type the answer and confirm it by
+pressing Enter.
+3) The installer displays a menu of choices or options: you select one of them
+using the up and down arrow keys, then confirm your choice by pressing Enter,
+or cancel by pressing Escape.
+4) The installer displays information in a pager, as it is doing now.
+Use arrow keys to read the next or previous line, press space to display the
+next page, Q to stop reading the document.
 
 [[Start_of_the_installation]]
 ==== Start of the installation
@@ -367,24 +377,28 @@ If you are acquainted with the command line, you may skip this topic.
 
 The main installation menu is displayed below:
 ....
-Welcome to the Slint installer! (version 14.2.1)
+Welcome to the Slint installer! (version 15)
 
-Available commands (do not type the quotes):
+You may now type (without the quotes):
 
 'doc' to know the features and usage of the installer.
-'auto' to start a semi-automatic, guided installation.
-'setup' to start a manual installation.
+'start' to start the installation.
 
-We recommend that you type 'doc' first to prepare a manual installation, or if
-you want to encrypt the drive where Slint will be installed, or if you need to
-reduce the size of a partition to make room for Slint alongside another system.
+The installer can prepare the drive where Slint will be installed,
+creating the the needed partitions. If you prefer you can do it yourself
+using command line utilities available in the installer, then type 'start'
+when done. You can also leave the installer and use a tool like gparted
+to do that then start the installer again.
+
+We recommend that you type 'doc' first in this case, or if you want to
+encrypt the root Slint partition.
 When you finish reading this menu will be displayed again.
 ....
 
 As soon as this menu is displayed, you have the hand on the installation process.
 
 You read the screen and type commands in a <<virtual_terminal,virtual terminal>>. The installer
-includes several virtual terminals sharing the same physical keyboard and
+includes several 4 virtual terminals sharing the same physical keyboard and
 screen, that can be used in parallel.
 
 The installer starts in the virtual terminal 1 named *tty1* but you can switch
@@ -400,9 +414,6 @@ the next installation step.
 
 This can also be used to consult the glossary while reading other documents.
 
-The fourth virtual terminal or *tty4* displays messages that provide information
-useful for debugging, otherwise it is not used.
-
 The installer has several modes of interaction with you, the user:
 
 . You type commands at the prompt and read their output.
@@ -410,61 +421,336 @@ The installer has several modes of interaction with you, the user:
 . The installer displays a menu of choices or options: you select one of them using the up and down arrow keys, then confirm your choice by pressing Enter, or cancel by pressing Escape.
 . The installer displays information in a pager. Then use arrow keys to read the next or previous line, press space to display the next page, Q to stop reading the document.
 
-[[Automatic_installation]]
-==== Automatic installation
+[[Manual_preparation]]
+==== Manual preparation of the partitions used to install Slint
 
-In automatic mode the installer provides default settings, including the graphical environment (Mate). After having started
-your new system, you can review and change all settings.
+In this document 'format' a partition means: create a file system in it to
+manage the files it will contain.
 
-The installation steps are detailed below.
+If after having type 'start' you type 'm' for manual partitioning you
+will first select the root system partition, which will be mounted as "/",
+then the type of file system to create in it among: btrfs, ext4, xfs.
 
-. Installing Slint needs at least 28G of space on drive. The installer first probes the drives, their sizes and the free space on them. Depending on the results, it allows you to install on a dedicated drive or on the free space in a drive.
-.. Installation on a dedicated drive.
-+
-In this installation mode all the previous content of the drive will be erased. If it contains files you want to keep, save them elsewhere first!
-+
-If the drive is removable and connected through USB, the installer can make Slint portable, allowing you to use it on any computer able to boot off an external USB drive.
-+
-The drive can optionally be encrypted, to protect your data from theft if the drive or computer is lost or stolen. As there are important associated caveats, carefully read the document Encryption first.
+The installer lists for selection only partitions that meet the
+requirements stated below:
 
-.. Installation in a drive shared by another system. This makes possible to install Slint while keeping the other system using only one drive.
-+
-This is allowed if the drive has at least 28G of space free or that can be freed at its end, has a GPT (GUID partition table), and the installer boots in EFI mode: in this configuration both system will boot without interfering with each other.
+Size: at least 50G
+Type: Linux (can also be named Linux filesystem), not encrypted. This
+partition may be formatted or not, but in any case its content will be
+wiped out and a new file system generated by the installer.
+If the drive in which is the partition is located has a GPT (GUID partition
+table) a BIOS boot partition, needed by GRUB in some cases, of size at least
+3M and not formatted.
+A partition of type ESP (EFI system partition) located on the same drive as
+the root system partition, with at least 32M free space in it, formatted with
+a 'fat' (or 'vfat') file system as as required by the UEFI specification
 
-. You choose the size of the main Slint partition, and optionally the size of an additional partition, optionally leaving some free space on the drive for future use.
-+
-The main partition will generally have an ext4 file system. However, if installed on an SD card or eMMC drive it will have an f2fs file system.
-+
-You will have the chance to review and modify your choices before installation begins.
-+
-After confirmation the base packages are installed, which takes a few seconds.
+The installer includes several partitioning applications: cfdisk, fdisk, sfdisk,
+cgdisk, gdisk, sgdisk, parted. The applications with "g" in their name can
+handle only gpt, parted can handle DOS partition tables as well as GPT. fdisk,
+cfdisk and sfdisk can handle DOS partition tables. In addition, wipefs
+(to erase previous partition table and file system signatures) and partprobe
+(to inform the kernel of a partition table changes) are available.
+The blkid and lsblk applications displays information about block devices and
+partitions.
 
-. If you opted for an encrypted disk you type the passphrase that will be used to unlock the drive at each boot up.
-. You choose a password for the user "root." This is the system administrator, who has all privileges. You also create a regular user account, indicate if you will need accessible Braille output, and whether you want to log in to Slint in text or graphical mode.
-+
-[NOTE]
-====
-If you used the language English (USA) during installation you choose which language to use for the installed system, else the installer sets the same as during installation.
-====
-. The installer attempts to establish an Internet connection, allowing to propose a time zone corresponding to your geographical location and later install packages remotely as need be. You set it up or confirm the proposed one.
-. The installer then creates a swap file in the system partition, which you can easily resize after installation. By default, an additional swap space 1.8 times the size of the physical RAM will be set up in zram every time Slint is booted up.
-. The packages are installed on the drive (the KDE series of packages is optional). The installer will attempt to establish an Internet connection so it can download and install the most recent version of each package, including those provided since the release of the ISO image. Thus you won't have to download and install these new or upgraded packages after installation.
-+
-Installation of all packages takes about 10 to 40 minutes depending on the hardware.
+Of course you may also create the partitions form another system before
+starting the installer.
 
-. Next, the system is configured and the GRUB boot manager installed. If Slint has been installed on a dedicated drive, it can boot in both Legacy and EFI modes. Otherwise, it will boot only in EFI mode. In either case, the boot menu will have an additional "rescue" boot entry to detect and boot installed OS.
-. You will be prompted to create a rescue boot stick on a USB flash drive. You can use this to boot Slint if it fails to boot from its boot menu.
+[[Encryption]]
+==== Slint with an encrypted root partition.
 
-Last, remove the installation media and reboot to start your new Slint system.
-You can display a preview of the boot menu before rebooting.
+The installer proposes to encrypt the root partition of Slint
 
-[[Manual_installation]]
-==== Manual installation
+If you accept, at each boot the GRUB boot loader will ask you the passphrase
+that you will have typed during installation to unlock the drive, before
+displaying the boot menu. Be aware that unlocking the drive will take a few
+seconds (around ten seconds).
 
-A manual installation consists of two main steps.
+During installation the Slint system partition will be encrypted, and also the
+additional partition that you may request.
 
-. Prepare the drive(s) for installation. This includes: design the partitions layout, create the partitions and optionally format them i.e. create file systems in them. The installer can format the Linux partitions if you prefer.
-. Type *setup* to perform further preparation, installation and configuration.
+Having an encrypted partition prevents the steal of data it contains in case
+of loss or theft of the machine, or of a removable drive.
+
+But this won't protect you if the computer stays running and unattended, only
+if the machine has been switched off completely!
+
+A Slint system (or root) partition will the be named: /dev/mapper/cryproot once
+opened, if it has been encrypted.
+
+This is shown by this command:
+lsblk -lpo name,fstype,mountpoint | grep /$
+Which gives an ouptut like:
+/dev/mapper/cryptroot ext4    / 
+
+This command instead:
+lsblk -lpo name,fstype,mountpoint | grep /dev/sda3
+gives:
+/dev/sda3             cryptoLUKS
+/dev/sda3 is now a "raw" partition that includes the so called "LUKS header"
+that you will never need nor ever should access directly.  It hosts all that is
+needed to encrypt or decrypt the partition /dev/mapper/cryptroot, which
+actually hosts your data (in this example the Slint system).
+
+WARNINGS
+
+If you forget the passphrase all data in the drive will be irrecoverably lost!
+So write down or record this passphrase and put the record on a safe place as
+soon as done.
+
+Drives die. if that happens and it is encrypted your data will be lost.
+So, regularly back up your important data is not optional. 
+
+Don't resize a partition of an encrypted drive as after that it would be 
+definitively locked and all the data it contains will be lost!
+
+If you really need more space, you will need to backup all the files that you
+want to keep, then install anew and restore the backed up files.  
+
+Choose a strong passphrase, so that it would take too much time for a robber to
+discover for it to be worthwhile.
+
+Never ever fiddle with the so-called "LUKS header" located on the raw partition
+(the third one, like e.g. /dev/sda3 for the raw partition on top of the Slint
+system partition).  Practically: don't create a file system in this partition,
+don't make it part of a RAID array and generally write to it: all data in the
+Slint system partition would be irrecoverably lost!
+
+To avoid weak passphrases the installer requires that the passphrase include:
+1) at least 8 characters.
+2) Only non accented lower case and capital letters, digits from 0 to 9,
+space and following punctuation characters:
+ ' ! " # $ %  & ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
+This guarantees that even a new keyboard will have all characters needed to
+type the passphrase.
+3) At least one digit, one lower case letter, one capital letter and one
+punctuation character.
+
+GRUB assumes that "us" keyboard is in use when type the passphrase.
+For this reason, if during installation you use an other keyboard map, before
+asking the passphrase the installer will set the keyboard map to "us", and
+after having recorded it restore the previously used one. In this case the
+installer will also spell each typed character of the passphrase, as it may
+differ from the one written on the key.
+
+The application cryptsetup is used to encrypt the drive. To know more type
+after installation:
+man cryptsetup
+and to know even more read:
+https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
+
+[[Speakup]]
+==== Key bindings for the speakup screen reader
+
+Keep numlock off to use Speakup.
+The CapsLock key is used like a shift key. For instance "CapsLock 4" means:
+hold down the CapsLock key like a shift key and press 4.
+
+First key bindings to remember:
+PrintScreen         Toggle speakup on/off. 
+CapsLock F1         Speakup Help (press Space to exit the help).
+
+Key bindings to change settings:
+CapsLock 1/2        Decrease/Increase the sound volume.
+CapsLock 5/6        Decrease/Increase the speech rate.
+
+Key bindings to review the screen
+CapsLock j/k/l      Say Previous/Current/Next word.
+CapsLock k (twice)  Spell current word.
+CapsLock u/i/o      Say Previous/Current/Next line.
+CapsLock y          Say from top of screen to reading cursor.
+CapsLock p          Say from reading cursor line to bottom of screen.
+
+[[Glossary]]
+==== Glossary of technical terms used in the documentation
+
+Drive
+
+A drive is a device that stores non volatile data, meaning that the data is not
+erased when the power is turned off. Examples: hard disks, SSD, USB sticks, SD
+cards readers, eMMC.
+
+The media storing the data can be permanently attached to the drive or removable
+like SD cards, USB sticks and drives connected through USB.
+
+An operating system installed in a removable media or an external drive is said
+portable: it can be moved from a computer to another one.
+
+Encryption
+
+Encryption is the process of converting data to an unrecognizable ("encrypted")
+form. It is commonly used to protect sensitive information so that only
+authorized persons can view it. A single file or directory, a partition as well
+as a whole drive can be encrypted, which make it accessible only after having
+typed a small text called a passphrase, kept secret.
+
+Partition
+
+A partition is a section of a storage media, such as a hard disk or SSD.  It is
+treated by the operating system as a separate logical volume, which makes it
+function similar to a separate media.
+
+Partition table
+
+A partition table is the permanent structure recording how information is laid
+out on a media, mainly recording the beginning and end of each partition on
+the media.
+
+The most common types of partition tables are the DOS partition table, initially
+used by the MS-DOS operating system, and the GUID Partition Table or GPT, which
+allows to handle more partitions and larger drives.
+
+Directory
+
+A directory is another name for a folder. File systems use directories to
+organize files within partitions.
+
+Directories can contain files and also other directories. The resulting
+structure can be represented as an upside-down tree. The top-level directory of
+a drive is named the root directory.  In Linux the character / separates the
+levels of the tree. / alone represents the root directory, /home hosts the files
+belonging to users, /home/didier hosts the files belonging to user didier.
+/root hosts the files of the user named root (the system's administrator).
+Note: 'root' can refer to the top-level directory or the system's administrator.
+
+Boot
+
+Boot means switch-on a computer to start an operating system. Several operating
+systems can be installed in the same computer. Select which one to load into
+RAM and run can be done either by the firmware or by a software named boot
+manager (GRUB in Slint's case). Starting the OS can be done two ways or modes:
+In the Legacy or BIOS mode the OS is loaded executing the instructions written
+in a boot sector.  In the EFI mode the OS loader is a program stored in an
+executable file, located in a directory of an EFI System partition (ESP).
+The firmware of a computer can support one of these modes, or both.  In the
+future the EFI mode will completely supersede the Legacy mode.
+
+Firmware
+
+A firmware is a software that initializes and checks the hardware, then either
+selects and load in RAM the operating system, or starts a software called a
+boot manager that will do that. The firmware is held in non-volatile memory
+devices such as ROM, EPROM, or flash memory. It is the first software run when
+booting a computer. It provides a menu allowing to configure the hardware and
+select in which mode (Legacy or EFI) to boot, and in which order look for the
+operating system or other application (like the GRUB boot manager) to run.
+
+RAM
+
+RAM stands for Random Access Memory. This kind of device stores volatile data,
+meaning that the data is erased when the power is turned off.
+
+SWAP
+
+A swap space is used to tentatively store data previously in RAM on a device
+like a hard disk or SSD, either because else the RAM would become full, or to
+free space in RAM to store there most frequently used data. The swap space can
+be a partition on a drive of type 'Linux swap' or a regular file stored in an
+an existing partition. There is also the 'swap in zram': in this case the data
+is stored in RAM but in compressed form, to its usable size of the RAM.  
+
+File system
+
+A file system is a software that manages the files and directories in a
+partition. It memorizes the location in the physical media of the data
+contained in the files, allowing to read or writing them. Examples of commonly
+used file systems are vfat, ntfs, ext4, xfs, btrhs. This command lists all
+file systems allowing to read data contained in a partition from Linux:
+cat /proc/filesystems|grep -v nodev
+
+[[Firts_steps]]
+==== First steps after installation
+
+Here are the first tasks to perform after installation 
+
+In this document, all text after a # character are comments of the suggested
+command, not to be typed.
+
+1) Software update
+
+A newly installed Slint contains software shipped in the ISO image.
+
+After installation, the system should be updated to get the most recently
+provided version of each software, as well as new software provided since the
+release of the ISO. This is especially necessary if no network connection was
+available during installation, as then only the packages included in the
+distribution media were installed, and they could be outdated.
+
+Most commands typed below request administrative right associated to a
+specific account named 'root', for which you have recorded a a password
+during installation.
+
+To issue a command as 'root', first type
+su -
+then give password for root and type the command.
+
+Wen you are done issuing commands as 'root', press Ctrl+d or type exit to get
+back your "regular user" status.
+
+Alternatively the user registered during installation can type:
+sudo <command>
+then give the password for root
+
+To update, type as root in a console or a graphical terminal:
+
+slapt-get --add-keys # retrieve the keys to authenticate the packages
+slapt-get -u # update the list of packages in the mirrors 
+slapt-get --install-set slint # get the new packages
+slapt-get --upgrade # Get the new versions of installed packages
+dotnew # lists the changes in configuration files
+
+When running dotnew, accept to replace all old configuration files by new ones.
+This is safe as you didn't make any customization yet.
+
+Alternatively, you can use these graphical front-ends: gslapt instead of
+slapt-get, and dotnew-gtk instead of dotnew.
+
+To learn more about slapt-get, type:
+man slapt-get
+or as root:
+slapt-get --help
+
+and read /usr/doc/slapt-get*/README.slaptgetrc.Slint
+
+In case a kernel upgrade has been provided since the release of the ISO, type
+ as root: upgrade-kernel
+
+Also, consult the documentation provided for Slint, typing: slint-doc
+
+2) Update of the configuration.
+
+Here are the utilities that you can use to (re)configure your Slint system with
+the default values set if you chose to install using 'auto', case occuring.
+
+Unless otherwise noted these utilities should be used as root. To become root,
+i.e. get the 'admin' status and privileges type "su -" then  root's password.
+To get back the regular user status pres Ctrl+d or type exit.
+
+Most utilities have a command line and a graphical version. The command line
+version is listed first below. Unless otherwise stated all commands should be
+types as root.
+
+General settings:
+To manage users: usersetup or gtkusersetup
+To change the language and region: localesetup or gtklocalesetup
+To change the keyboard setup and the input method: keyboardsetup or
+gtkkeyboardsetup
+To configure the date, the time or the timezone: clocksetup and gtkcloksetup.
+To choose which services start at boot: servicesetup and gtkservicesetup.
+To (re)configure the network: netsetup.
+To choose to start in text or graphical mode and in the later case the graphical
+login manager: login-chooser
+To choose a desktop, or graphical session: session-chooser (as regular user)
+If KDE is installed to show or hide its applications in other desktop's menus:
+show-kde-apps or hide-kde-apps.
+
+Accessibility settings:
+To choose a screen reader: speak-with
+To start or not the orca screen reader on the desktop, as regular user: orca-on
+or orca-off
+
+
 
 ===== Prepare the drive(s) for installation.
 
