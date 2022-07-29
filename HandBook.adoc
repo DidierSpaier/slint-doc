@@ -107,8 +107,8 @@ This part of the HandBook walks through the process of downloading Slint, verify
 The current Slint version can be installed on computers meeting these requirements:
 
 * Architecture: x86_64 (64-bit CPU), also known as AMD64
-* In Auto partitiong mode a disk drive of size at least 50G
-* On Manual partitioning modea partition of type Linux of size at least 50G, an EFI system partition and a BIOS boot partition on the same disk drive.
+* In Auto partitioning mode a disk drive of size at least 50G
+* In Manual partitioning mode a partition of type Linux of size at least 50G, an EFI system partition and a BIOS boot partition on the same disk drive.
 * Sint can be installed on these kinds of drives: hard drives, SSD, NVME, eMMC, USB sticks, SD preferably cards in USB enclosures.
 * RAM: at least 2G
 * a DVD drive or an USB slot available, with ability of the firmware to boot a DVD or USB stick. A blank DVD or a 5G or more USB stick can be used as installation media
@@ -119,9 +119,9 @@ NOTE: Secure boot should be disabled to install Slint.
 
 * The installer is a "live system", running in memory: it will not modify an installed system, unless and until you tell it to.
 * For blind users the installer is fully usable with Braille, and speech using the Speakup screen reader.
-* It includes all needed utilities to prepare an the needed partitions prior to an installation in Manual partitining mpde.
+* It includes all needed utilities to prepare an the needed partitions prior to an installation in Manual partitioning mode.
 * The Auto mode of installation instead just needs user to answering questions and provide a contextual help about them.
-* If installed alone on a removable device connected through USB, Slint is portable, i.e. usable on any computer able to boot off an USB drive beyond the computer used to install it. For instance if installing on an USB stick you can just plug te stick on a compiter to run it.
+* If installed alone on a removable device connected through USB, Slint is portable, i.e. usable on any computer able to boot off an USB drive beyond the computer used to install it. For instance if installing on an USB stick you can just plug the stick in a computer to run it.
 * The installer can encrypt the drive  where Slint is installed alone. This prevents the steal of data it contains in case of loss or theft of the machine, or of a removable drive.
 * Slint can be installed in its own drive, or alongside another system.
 
@@ -134,9 +134,9 @@ NOTE: Secure boot should be disabled to install Slint.
 [[download_and_verify]]
 ====  Download and verify a Slint ISO image
 
-The latest version of the Slint distribution is 14.2.1
+The latest version of the Slint distribution is 15.0
 
-The latest installation ISO image is always available in https://slackware.uk/slint/x86_64/slint-14.2.1/iso[this directory]
+The latest installation ISO image is always available in https://slackware.uk/slint/x86_64/slint-15.0/iso[this directory]
 
 [TIP]
 ====
@@ -155,7 +155,7 @@ wget https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.iso.sha256
 
 To check the integrity of the downloaded files type this command:
 ----
-sha256sum -c slint64-14.2.1.4.iso.sha256
+sha256sum -c slint64-15.0.iso.sha256
 ----
 
 The result should be : OK +
@@ -183,7 +183,7 @@ Carefully review the output of the command to make sure that you will not type t
 Let's assume that the name of the USB stick be /dev/sdb. It could be named otherwise, so don't copy blindly the following command.  The command syntax to write the Slint ISO to a USB stick that resides at /dev/sdb is as follows:
 
 ----
-dd if=slint64-14.2.1.4.iso of=/dev/sdb bs=1M status=progress && sync
+dd if=slint64-15.0.iso of=/dev/sdb bs=1M status=progress && sync
 ----
 
 [NOTE]
@@ -199,7 +199,7 @@ On ++Windows++ use an application like http://rufus.akeo.ie/[Rufus].  It is free
 On a ++Linux++ system insert the DVD and type the following command:
 
 ----
-growisofs -speed=2 -dvd-compat -Z /dev/sr0=slint64-14.2.1.4.iso
+growisofs -speed=2 -dvd-compat -Z /dev/sr0=slint64-15.0.iso
 ----
 
 Be sure to enter the full path to the Slint ISO on your filesystem.
@@ -242,7 +242,7 @@ Of course you may also create the partitions form another system before
 starting the installer.
 
 === Slint Installation
-<<Start_of_the_installation,Start of the installation>>
+<<Start_of_the_installation,Start of the installation>> +
 <<Overview_of_Slint_Installation,Overview of the installation process>> +
 <<Usage_of_the_installer,Usage of the installer>> +
 <<Encryption,Slint with an encrypted root partition>> +
@@ -254,7 +254,7 @@ starting the installer.
 
 If need be, setup the firmware of the machine to boot off the DVD or USB stick that you have prepared.
 
-Insert the installation media (DVD or USB stick) and reboot your machine. To hemp blind users a tune is heard when the boot menu is displayed.
+Insert the installation media (DVD or USB stick) and reboot your machine. To help blind users a tune is heard when the boot menu is displayed.
 
 Start the installer just pressing Enter.
 
@@ -348,43 +348,6 @@ packages are installed.
 [[Usage_of_the_installer]]
 ==== Usage of the installer
 
-The installer first lets you choose the language to use during installation and
-select your keyboard layout, then allows you to type commands.
-
-You read the screen and type commands in a "virtual terminal". The installer
-includes several virtual terminals sharing the same physical keyboard and
-screen, that can be used in parallel.
-
-The installer starts in the virtual terminal 1 named tty1 but you can switch
-to another one. For instance you can switch to tty2 by pressing
-Alt-F2 then Enter to activate it and later go back to tty2 by pressing
-Alt-F1, without erasing information displayed in both terminals.
-Alt-F1 means: press and hold the Alt key then press the F1 key.
-
-This can be useful to continue reading the documentation during installation:
-for instance you can switch to tty2 to begin installation, switch to tty1 to
-continue reading the documentation, then switch to tty1 again to proceed to
-the next installation step.
-
-This can also be used to consult the glossary while reading other documents.
-
-The fourth virtual terminal or tty4 displays messages that can provide
-information for debugging, otherwise it is not used.
-
-The installer has several modes of interaction with you, the user:
-1) You type commands at the prompt and read their output.
-2) The installer asks a question, you type the answer and confirm it by
-pressing Enter.
-3) The installer displays a menu of choices or options: you select one of them
-using the up and down arrow keys, then confirm your choice by pressing Enter,
-or cancel by pressing Escape.
-4) The installer displays information in a pager, as it is doing now.
-Use arrow keys to read the next or previous line, press space to display the
-next page, Q to stop reading the document.
-
-[[Usage_of_the_installer]]
-==== Usage of the installer
-
 If you are acquainted with the command line, you may skip this topic.
 
 The main installation menu is displayed below:
@@ -428,15 +391,15 @@ This can also be used to consult the glossary while reading other documents.
 
 The installer has several modes of interaction with you, the user:
 
-. You type commands at the prompt and read their output.
-. The installer asks a question, you type the answer and confirm it by pressing Enter.
-. The installer displays a menu of choices or options: you select one of them using the up and down arrow keys, then confirm your choice by pressing Enter, or cancel by pressing Escape.
-. The installer displays information in a pager. Then use arrow keys to read the next or previous line, press space to display the next page, Q to stop reading the document.
+* You type commands at the prompt and read their output.
+* The installer asks a question, you type the answer and confirm it by pressing Enter.
+* The installer displays a menu of choices or options: you select one of them using the up and down arrow keys, then confirm your choice by pressing Enter, or cancel by pressing Escape.
+* The installer displays information in a pager. Then use arrow keys to read the next or previous line, press space to display the next page, Q to stop reading the document.
 
 [[Encryption]]
 ==== Slint with an encrypted root partition.
 
-In Auto mode the installer proposes to encrypt the root system partiton. If you agree, at each boot the GRUB boot loader will ask you the passphrase
+In Auto mode the installer proposes to encrypt the root system partition. If you agree, at each boot the GRUB boot loader will ask you the passphrase
 that you will have typed during installation to unlock the drive, before
 displaying the boot menu. Be aware that unlocking the drive will take a few
 seconds (about ten seconds).
@@ -544,7 +507,7 @@ man cryptsetup
 [[Speakup]]
 ==== Key bindings for the Speakup screen reader
 
-This chapter is intended for users needing a screen reader but not acquaibted with Speakup.
+This chapter is intended for users needing a screen reader but not acquainted with Speakup.
 
 Keep numlock off to use Speakup.
 
@@ -565,99 +528,6 @@ hold down the CapsLock key like a shift key and press 4.
  CapsLock u/i/o      Say Previous/Current/Next line.
  CapsLock y          Say from top of screen to reading cursor.
  CapsLock p          Say from reading cursor line to bottom of screen.
-
-[[Firts_steps]]
-==== First steps after installation
-
-Here are the first tasks to perform after installation 
-
-In this document, all text after a # character are comments of the suggested
-command, not to be typed.
-
-1) Software update
-
-A newly installed Slint contains software shipped in the ISO image.
-
-After installation, the system should be updated to get the most recently
-provided version of each software, as well as new software provided since the
-release of the ISO. This is especially necessary if no network connection was
-available during installation, as then only the packages included in the
-distribution media were installed, and they could be outdated.
-
-Most commands typed below request administrative right associated to a
-specific account named 'root', for which you have recorded a a password
-during installation.
-
-To issue a command as 'root', first type
-su -
-then give password for root and type the command.
-
-Wen you are done issuing commands as 'root', press Ctrl+d or type exit to get
-back your "regular user" status.
-
-Alternatively the user registered during installation can type:
-sudo <command>
-then give the password for root
-
-To update, type as root in a console or a graphical terminal:
-
-slapt-get --add-keys # retrieve the keys to authenticate the packages
-slapt-get -u # update the list of packages in the mirrors 
-slapt-get --install-set slint # get the new packages
-slapt-get --upgrade # Get the new versions of installed packages
-dotnew # lists the changes in configuration files
-
-When running dotnew, accept to replace all old configuration files by new ones.
-This is safe as you didn't make any customization yet.
-
-Alternatively, you can use these graphical front-ends: gslapt instead of
-slapt-get, and dotnew-gtk instead of dotnew.
-
-To learn more about slapt-get, type:
-man slapt-get
-or as root:
-slapt-get --help
-
-and read /usr/doc/slapt-get*/README.slaptgetrc.Slint
-
-In case a kernel upgrade has been provided since the release of the ISO, type
- as root: upgrade-kernel
-
-Also, consult the documentation provided for Slint, typing: slint-doc
-
-2) Update of the configuration.
-
-Here are the utilities that you can use to (re)configure your Slint system with
-the default values set if you chose to install using 'auto', case occuring.
-
-Unless otherwise noted these utilities should be used as root. To become root,
-i.e. get the 'admin' status and privileges type "su -" then  root's password.
-To get back the regular user status pres Ctrl+d or type exit.
-
-Most utilities have a command line and a graphical version. The command line
-version is listed first below. Unless otherwise stated all commands should be
-types as root.
-
-General settings:
-To manage users: usersetup or gtkusersetup
-To change the language and region: localesetup or gtklocalesetup
-To change the keyboard setup and the input method: keyboardsetup or
-gtkkeyboardsetup
-To configure the date, the time or the timezone: clocksetup and gtkcloksetup.
-To choose which services start at boot: servicesetup and gtkservicesetup.
-To (re)configure the network: netsetup.
-To choose to start in text or graphical mode and in the later case the graphical
-login manager: login-chooser
-To choose a desktop, or graphical session: session-chooser (as regular user)
-If KDE is installed to show or hide its applications in other desktop's menus:
-show-kde-apps or hide-kde-apps.
-
-Accessibility settings:
-To choose a screen reader: speak-with
-To start or not the orca screen reader on the desktop, as regular user: orca-on
-or orca-off
-
-and to know even more read: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions[this FAQ].
 
 [[first_steps_after_installation]]
 ==== First steps after installation
@@ -685,10 +555,14 @@ su -
 ----
 then issue the password for root and press Enter before type the command.
 
-This replaces 'sudo' used in other distributions.
-
 When you are done issuing commands as 'root', press Ctrl+d or type 'exit' to get
 back your "regular user" status.
+
+Alternatively the user registered during installation and other members of thhe 'whgeel' group can type:
+----
+sudo <command>
+---
+then then also the password for root.
 
 To update, type as root in a console or a graphical terminal:
 ----
@@ -736,8 +610,9 @@ typed as root.
 * To choose which services start at boot: servicesetup and gtkservicesetup.
 * To (re)configure the network: netsetup.
 * To choose to start in text or graphical mode and in the later case the graphical login manager: login-chooser
-* To choose a desktop, or graphical session: session-chooser (as regular user)
-* If KDE is installed to show or hide its applications in other desktop's menus: show-kde-apps or hide-kde-apps.
+* To choose a desktop among FVWM, LXQt, MATE an WindowMaker: session-chooser (as regular user)
+* To choose one of these desktops or one the standalone window managers: xwmconfig (as regular user)
+* To display or not the applications specific to a desktop in other desktops shoc-desktop or hide(desktop (as regular user)
 
 *Accessibility settings*
 
@@ -746,7 +621,7 @@ To choose and enable a console screen reader or disable all of them type as root
 speak-with
 ----
 
-From Slint version 14.2.1 onward the first regular user created during installation will have speech and braille already enabled in the installed system, if speech was used and braille requested during installation. Other users will need to check or make additional settings, as indicated below.
+The first regular user created during installation will have speech and braille already enabled in the installed system, if speech was used and braille requested during installation. Other users will need to check or make additional settings, as indicated below.
 
 To enable braille:
 
@@ -768,7 +643,7 @@ To enable speech at the system level type as root:
 ----
 login-chooser
 ----
-and choose one of the login modes that speak: text, lightdm or gdm
+and choose one of the login modes: text or lightdm
 
 To enable speech in graphical environments as regular user type as this user:
 ----
@@ -860,15 +735,14 @@ We will now present the graphical environments, then how to use a shell.
 
 A full featured graphical environment includes several components, among which a window manager which draws windows on the screen associated with applications, move, re-size and close these windows.
 
-Slint allows includes several graphical environments: BlackBox, Fluxbox, LXQt and  MATE, TWM, and WindowMaker. It is a matter of preference which one you choose.
+Slint allows includes several graphical environments: BlackBox, Fluxbox, FVWM, LXQt, MATE, ratpoiso,  TWM, and WindowMaker. It is a matter of preference which one you choose.
 
-LXQt and MATE and XFCE are are full featured desktops, the other ones mainly
-window managers but they include a panel with an application menu. All allow you to
-access your documents and applications, generally opened in a window, include a panel and a menu.
+LXQt and MATE are are full featured desktops, FVWM and WindowMake offer unique features and can be selected with the graphical lightdm login as well and also started from a console typing "startx" the other ones mainly window managers that cna only be started from a console.. All allow you to
+access your documents and applications, generally opened in a window.
 
-The default graphical environment can be changed typing as regular user `session-chooser`. In Graphical mode you also can choose when logging in.
+The default graphical environment can be changed typing as regular user `session-chooser`. In Graphical mode you also can choose amng FVWM, LXWT, MATE and WindowMaker when logging in.
 
-We will now briefly describe the components of the Mate desktop, which is the default and is also the most accessible with speech and braille. Other full featured desktops have similar features.
+We will now briefly describe the components of the Mate desktop, which is the default and is also the most accessible with speech and braille.
 
 Using the mouse you can discover the features of each component doing or simulating a right, middle or left click. Move or delete most of the components, modify them and add new ones can be done the same way.
 
@@ -938,8 +812,6 @@ It presents, from left to right:
 * A *show desktop* button. A left click on it will minimize or hide all windows, clicking once again will restore the windows in their previous state.
 * A work space switcher, or pager. It allows to switch from a work space to another one and also to move windows from a work space to another one by drag and drop.
 
-The window managers are configured in Slint to be usable without changes. However you can reconfigure them to your liking. The way to do so varies from window manager to window manager. For more information, do an internet search.
-
 [[the_slint_control_center]]
 ====  The Slint Control Center
 
@@ -975,6 +847,7 @@ Most administrative tools should be used with administrative privileges.  You wi
 <|System <|Users and Groups <|This tool allows you to add, remove, and set up user accounts and groups. It is mostly useful on multi-user systems.
 <|System <|GUEFI Boot Manager <|This tool is a graphical front end to the efibootmanager command.  It allows editing of the EFI firmware's boot menu.  Actions such as adding, removing, or changing menu item order.
 <|System <|MATE system monitor<|This tool displays information about the system, like the process, resources usage (RAM, CPU, network traffic) and file systems usage.
+<System <|Display boot menu<|This tool give a preview of the boot menu as it will be dipmayed afte booting.
 |====
 
 [[graphical_terminals]]
@@ -1230,6 +1103,9 @@ If you are already logged as regular user, you can "become root"  typing: +
 *su -* +
 then pressing Enter. In this command, `su` (which stands for "Super User") is the name of the command, and the character *-* (hyphen-minus, also named minus) tells that you are opening a "login shell": you will first be asked root's password, then be directed to its home directory /home/root as if you had logged in as root at startup. This will avoid that you inadvertently write files in your home directory as regular user (/home/didier in the example) which cause issues later.
 
+The reguar user registered during installatio and other users members of the 'wheel' group can also type commands resreved to root prependig the name of the command by 'sudo' like this for instance: +
+*sudo update-grub"
+
 === How-to solve blocking issues
 
 By "blocking issue" we mean "an issue that prevents to use Slint" like:
@@ -1270,9 +1146,9 @@ fsck <name of the root partition>
 And if this succeeds just reboot.
 ====
 +
-Assuming that you installed Slint64-14.2.1 the output should be:
+Assuming that you installed Slint64-16.0 the output should be:
 +
-*Slint 14.2.1*
+*Slint 15.0*
 +
 If the output is "file not found" the partition is not the one you looked for. In this case only, type:
 +
@@ -1300,7 +1176,7 @@ chroot means "change root (of the system)": we are no more in the installer, but
 
 * Run "update-grub".
 
-* Run "grub-emu".
+* Run "grub-emu" or "list_boot_entries" (inthe latter case type 'q' the 'n' to quit, not Alt+F4)
 
 * Re-install GRUB using the command "grub-install drivename", drivename being the drive where to install Slint. Before doing that, if you will boot in EFI mode type first "mount /boot/efi".
 
@@ -1713,12 +1589,12 @@ In Slint software is provided in the form of packages. A package is a bundle of 
 
 Installation and removal of software are recorded in a database made of text files in these directories:
 ----
-/var/log/packages
+/var/lib/pkgtools/packages
 /var/log/removed_packages
-/var/log/scripts
+/var/lib/pkgtools/scripts
 /var/log/removed_scripts
 ----
-The files in /var/log/packages record information about the packages, mainly its content: the list of files it includes and where they are installed.
+The files in /var/lib/pkgtools/packages record information about the packages, mainly its content: the list of files it includes and where they are installed.
 
 The main commands to manage the packages are listed below. All of them have associated man pages.
 
@@ -1726,7 +1602,8 @@ These commands require administrative rights, associated to a specific account n
 
 To issue a command as 'root', first type
 su -
-then enter the password for root and type the command.
+then enter the password for root and type the command.+
+or use sudo.
 
 Commands below can be run from a graphical terminal or in a console, but gslapt that only works in a graphical environment.
 ----
@@ -1827,6 +1704,11 @@ You can navigate in it with the down and up arrow keys to highlight (put the foc
 
 To exit from grub-emu press c then type *exit* and press Enter.
 
+Alernatively you can type as root:
+----
+list_boot_entries
+----
+
 [[Get_additional_applications]]
 ==== Get additional applications
 
@@ -1843,15 +1725,15 @@ We will describe slapt-src in more details.
 
 The default configuration script for slapt-src is /etc/slapt-get/slap-srcrc and has this content:
 ----
-BUILDDIR=/tmp/slapt-src
+BUILDDIR=/var/lib/slapt-src
 PKGEXT=txz
-SOURCE=https://slackbuilds.org/slackbuilds/14.2/
+SOURCE=https://slackbuilds.org/slackbuilds/15.0/
 ----
 So:
 
-* All build material and packages will go in /tmp/slapt-src
+* All build material and packages will go in /var/lib/slapt-src
 * The names of packages built end in .txz
-* The build material is fetched from the repository https://slackbuilds.org/slackbuilds/14.2/
+* The build material is fetched from the repository https://slackbuilds.org/slackbuilds/15.0/
 
 Here is the output of the command *slapt-src --help*:
 ----
@@ -1907,7 +1789,7 @@ slapt-get -f mxml
 Knowing from the output of the previous command that the files are stored in the subdirectory libraries/mxml, you can check which files have been downloaded with this command:
 +
 ----
-ls -1 /tmp/slapt-src/libraries/mxml
+ls -1 /var/lib//slapt-src/libraries/mxml
 mxml-3.1.tar.gz
 mxml.SlackBuild
 mxml.info
@@ -1920,51 +1802,6 @@ upgradepkg --install-new /tmp/slapt-src/libraries/mxml/xml*txz
 ----
 +
 * Use -c if you want to use a custom configuration file instead of the default one /etc/slapt-get/slap-getrc
-
-[[sbopkg]]
-===== Usage of sbopkg
-
-WARNING: in some cases a software is shipped in Slint and is also available in https://slackbuilds.org but with a different name which can lead to problems. These discrepancies are solved when using slapt-src, but not yet when using sbopkg.
-
-Before using sbopkg, read its help file and its man page typing as root: *sbopkg --help* and *man sbopkg*
-
-In brief, if using only the command line, as root:
-
-* synchronize the local repository with the remote one to update it:
-+
-----
-sbopkg -r
-----
-* write a "queue file" listing the dependencies in the right order to build and install them before the software you want:
-+
-----
-sqg -p <package name>
-----
-A queue file named /var/lib/sbopkg/queues/<package name>.sqf will be written
-
-If there is no dependency no queue file will be written
-
-* build and install the dependencies then,the wanted software:
-+
-----
-sbopkg -i <package name>
-----
-If a queue file exists for this package choose to use it when asked.
-
-If a package mentioned in the queue file is already installed it will be skipped.
-
-As a consequence, if you want to upgrade a package already installed using sbopkg, you will have to remove it
-before building and installing the new one.
-
-Be aware that building and installing packages this way can occasionally lead to issues like missing dependencies or conflicts with installed packages: the components used to build the packages are provided by volunteers who can not check the results in every possible configuration.
-
-WARNING: If you neither can find a package for a software you want nor stuff to build one @ https://slackbuilds.org, you could be tempted to build and install this software manually by issuing the commands "./configure && make && make install". Avoid to do that, as software built and installed this way will not be manageable by the Slint packages management system and associated tools.
-
-Rather, just post a question or request on the Slint mailing list and we will try to help, possibly adding this package to the repository. When done (this will be announced in the mailing list), to install it type as root one of these comands:
-----
-slapt-get -i <package name>
-slapt-get --install-set Slint
-----
 
 === Manage users and groups.
 
@@ -2048,7 +1885,6 @@ There are several ways to add and configure a printer (this has to be done by an
 NOTE: To make any print setting the CUPS server should be running. It is started when you start Slint if the service `cups` in checked among the System Services (it is checked by default in Slint).
 
 === Sound set up
-
 
 In Slint applications either send their sound output either to ALSA or to PulseAudio.
 
@@ -2178,6 +2014,7 @@ To know more:
 ----
 man alsactl
 ----
+
 === Network configuration
 
 If you didn't set up your network settings during Slint installation, first
@@ -2258,6 +2095,7 @@ The services are managed by scripts whose name begin with `rc.` in the directory
 | alsa | on | alsa-utils | Provide default sound settings or restore those saved
 | alsa-oss | off | alsa-utils | ALSA OSS kernel modules. Not useful in most cases, not enabled by default in Slint.
 | atalk | off | netatalk | Allows Unix-like operating systems to serve as file, print and time servers for Macintosh computers.
+| atd | 
 | autofs | off | autofs | AutoFS provides automounting of removable media or network shares when they are inserted or accessed.
 | bind | off | bind | Name server. Most users will rely on a remote one. Enable it if you want to run a name server in this system.
 | bitlbee | on | bitlbee | BitlBee is an IRC daemon that can talk to  instant  messaging  networks
